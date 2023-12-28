@@ -2,6 +2,11 @@ import React from 'react'
 //z-index property to be applied in the form 
 //in carousel caption for the search bar to be visible
 //object fit overrides everything
+
+//cannot create an individual component as child to parent relation is not available in react js 
+//that is data cannot be sent from the carousel to the main home.js parent so we have to keep the code in the home.js only for this part 
+//identified when search functionality was required 
+
 const Carousel = () => {
   return (
     <div>

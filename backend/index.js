@@ -19,6 +19,8 @@ app.get('/',(req,res)=>{
 //using middlewares 
 app.use(express.json())
 app.use('/api/',require("./Routes/CreateUser"));
+app.use('/api/',require("./Routes/DisplayData"));
+
 app.listen(port,()=>{
     console.log(`Example on port ${port}`)
 }) //setting up express.js 
