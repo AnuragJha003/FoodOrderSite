@@ -7,10 +7,11 @@ const Card = (props) => {
     //key value pair of half and the price 
     let priceoptions=Object.keys(options);
     //keys and then from the map get the value corresponding to this key 
+    //the objectfill and height given to fit the images properly in the frontend 
     return (
         <div>
             <div className="card mt-3 mb-5" style={{ "width": "18rem", "maxHeight": "360px" }}>
-                <img src={props.imgSrc} className="card-img-top" alt="..." />
+                <img src={props.imgSrc} className="card-img-top" alt="..." style={{height:"120px",objectFit:"fill"}} />
                 <div className="card-body">
                     <h5 className="card-title">{props.foodName}</h5>
                     <div className="container w-100">
