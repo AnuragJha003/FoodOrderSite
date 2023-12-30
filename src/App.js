@@ -14,12 +14,14 @@ import{
 } from "react-router-dom" ;
 import Login from './screens/Login';
 import Signup from './screens/Signup.js';
+import { CartProvider } from './components/ContextReducer.js';
 
 
 function App() {
   return (
     //can return a single div at the end of it all
     //font size fs is of bootstrap 
+    <CartProvider>
     <Router>
       <div>
         <Routes>
@@ -29,6 +31,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </CartProvider>
   );
 }
 

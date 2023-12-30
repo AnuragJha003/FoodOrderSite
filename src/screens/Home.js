@@ -2,6 +2,8 @@ import React,{useEffect,useState} from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
+import { useDispatchCart,useCart } from '../components/ContextReducer'
+
 //we paste a card code into the body kyuki woh waisa hi aana chahiye according to requirments
 //whenever code reuse put into components jaise card section 
 
@@ -82,9 +84,9 @@ const Home = () => {
       .map(filterItems=>{
         return(
           <div key={filterItems._id} className="col-12 col-md-6 col-lg-3">
-            <Card foodName={filterItems.name}
+            <Card foodItem={filterItems}
             options={filterItems.options[0]}//accesssing the array as data is in this form na 
-            imgSrc={filterItems.img}></Card>
+            ></Card>
           </div>
         )
       }
