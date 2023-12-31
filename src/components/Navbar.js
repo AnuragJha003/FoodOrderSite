@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 import { useNavigate} from  'react-router-dom';
+import Badge from 'react-bootstrap/Badge'
+import Modal from '../Modal';
+import Cart from '../screens/Cart';
+import { useCart } from './ContextReducer';
 
+//onclose passed as prop to the modal.js and states used for it 
 //css applied and flex and all and clickable buttons made in the navbar
 const Navbar = () => {
+  const [cartView,setCartView]=useState(false);
+  let data=useCart();//data getting for the cart 
   const navigate=useNavigate();
 
   const handlelogout=()=>{
@@ -37,9 +44,11 @@ const Navbar = () => {
       </div>
       :
       <div>
-      <div className="btn bg-white text-success mx-2">
-        My Cart
+      <div className="btn bg-white text-success mx-2" onClick={()=>{setCartView(true)}}>
+        My Cart {" "}
+        <Badge pill bg="danger">{data.length}</Badge>
         </div>
+        {cartView?<Modal onClose={()=>setCartView(false)}><Cart/></Modal>:null}
       <div className="btn bg-white text-danger mx-2" onClick={handlelogout}>
         Logout </div>
         </div>
