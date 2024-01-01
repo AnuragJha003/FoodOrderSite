@@ -23,6 +23,8 @@ const Login = () => {
       }
       if(json.success){
         localStorage.setItem("authToken",json.authToken); //cache m store ho rha auth token 
+        //storing the email in the localstorage so that for user specific detail can be made
+        localStorage.setItem("userEmail",credentials.email);
         //everytime we will have a new auth token generated login is tried and stored in the cache for some while 
         console.log(localStorage.getItem("authToken"));
         navigate("/");//home page m aaja 

@@ -15,26 +15,29 @@ export default function Cart() {
   //   console.log(index)
   //   dispatch({type:"REMOVE",index:index})
   // }
-
-  const handleCheckOut = async () => {
+//handlechecout function 
+  const handleCheckOut = async (e) => {
+    e.preventDefault();
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("http://localhost:5000/api/auth/orderData", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
+    //fetch the user from the response 
+    let response = await fetch("http://localhost:5000/api/orderData", {
+      //credentials: 'include',  
+      //Origin:"http://localhost:3000",
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
-      },
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },//json type data being posted from the header 
       body: JSON.stringify({
         order_data: data,
         email: userEmail,
         order_date: new Date().toDateString()
-      })
+      }) //body of the json being sent to the api being given 
     });
     console.log("JSON RESPONSE:::::", response.status)
     if (response.status === 200) {
-      dispatch({ type: "DROP" })
+      dispatch({ type: "DROP" }) //checkout krte hi cart shd be empty so extra dispatch type drop that is emptying the cart  
     }
   }
 //creating the table in the div lower by using map function through the data function food and index

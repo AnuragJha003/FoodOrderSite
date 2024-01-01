@@ -6,7 +6,7 @@ const bcrypt=require('bcrypt');
 const jwt=require('jsonwebtoken');
 
 const jwtSecret="fnfjvnndjvndjvndjvnfdjvndfjvnfjdvndfjvndjvndfvndjvnd";
-
+ 
 
 router.post("/createuser",[
 body('email').isEmail(),
@@ -40,7 +40,7 @@ body('password','incorrect password').isLength({min:5}) ]
     }
 })
 
-
+  
 router.post("/loginuser",[
     body('email').isEmail(),
     //password must be atleast 5 chars long 
